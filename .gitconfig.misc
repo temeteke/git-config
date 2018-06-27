@@ -3,6 +3,7 @@
 	precomposeunicode = true
 	editor = vim
 	pager = LESS=-R less
+	quotepath = false
 [color]
 	ui = auto
 [alias]
