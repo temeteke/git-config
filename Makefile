@@ -13,12 +13,12 @@ all: .gitconfig
 	cat $^ > $@
 
 clean:
-	rm .gitconfig
+	rm -f .gitconfig
 
 install: .gitconfig
-	cp .gitconfig ~/
-	cp .gitignore ~/
+	cp -a .gitconfig ~/
+	cp -a .gitignore ~/
 
 uninstall:
-	rm ~/.gitconfig
-	rm ~/.gitignore
+	rm -f ~/.gitconfig
+	rm -f ~/.gitignore
