@@ -2,7 +2,7 @@ version := $(shell git --version | awk '{print $$3}' | awk -F. '{print ($$1*100+
 configs := $(wildcard .gitconfig.v*)
 configs := $(foreach config, $(configs), $(shell echo $(config) | awk -F'[.v]' '($$4*100+$$5)*100+$$6<=$(version)'))
 configs := .gitconfig.misc $(configs)
-ifneq (,$(wildcard /mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe))
+ifneq (,$(wildcard /mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe))
 	configs := $(configs) .gitconfig.credential.wsl
 endif
 
