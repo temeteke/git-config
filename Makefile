@@ -5,6 +5,12 @@ configs := .gitconfig.misc $(configs)
 ifneq (,$(wildcard /mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe))
 	configs := $(configs) .gitconfig.credential.wsl
 endif
+ifneq ($(shell which gh 2>/dev/null),)
+	configs := $(configs) .gitconfig.credential.gh
+endif
+ifneq ($(shell which glab 2>/dev/null),)
+	configs := $(configs) .gitconfig.credential.glab
+endif
 
 .PHONY: all clean install uninstall
 all: .gitconfig
