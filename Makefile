@@ -12,7 +12,7 @@ ifneq ($(shell which glab 2>/dev/null),)
 	configs := $(configs) .gitconfig.credential.glab
 endif
 
-.PHONY: all clean install uninstall
+.PHONY: all clean install install-config uninstall uninstall-config
 all: .gitconfig
 
 .gitconfig: $(configs)
@@ -21,10 +21,14 @@ all: .gitconfig
 clean:
 	rm -f .gitconfig
 
-install: .gitconfig
+install: install-config
+
+install-config: .gitconfig
 	cp -a .gitconfig ~/
 	cp -a .gitignore ~/
 
-uninstall:
+uninstall: uninstall-config
+
+uninstall-config:
 	rm -f ~/.gitconfig
 	rm -f ~/.gitignore
